@@ -44,8 +44,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("5a0ddbd75929d24f5ef34944d78789c6c3421aa943c15218bac791c199fc897d" default))
  '(org-agenda-custom-commands
    '(("H" "Habits"
       ((agenda ""
@@ -57,8 +55,6 @@
  '(org-refile-allow-creating-parent-nodes 'confirm)
  '(org-refile-targets '((org-agenda-files :tag . ":maxlevel . 2")))
  '(org-refile-use-outline-path 'file)
- '(package-selected-packages
-   '(gruvbox-theme yasnippet-snippets vertico vc-use-package titlecase org-web-tools org-roam org-multi-clock orderless ob-yaml nov modus-themes marginalia magit key-chord jinx hide-mode-line god-mode eradio elfeed-tube el-patch devil consult-notes citar-denote biblio avy))
  '(safe-local-variable-values '((org-duration-format . h:mm) (org-log-done . time))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -106,8 +102,15 @@
 	 (file "~/Documents/tpl-book.org")
 	 :empty-lines-after 2)))
 
-(use-package gruvbox-theme
-  (load-theme 'gruvbox-dark-medium :no-confirm))
+(use-package modus-themes
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-bold-constructs t)
+  (modus-themes-mixed-fonts t)
+  (modus-themes-to-toggle
+   '(modus-operandi-tinted modus-vivendi-tinted))
+  :init
+  (load-theme 'modus-vivendi-tinted :no-confirm))
 
 (use-package god-mode
   :init
