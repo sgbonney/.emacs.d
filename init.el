@@ -12,6 +12,8 @@
 (tool-bar-mode -1)
 (global-visual-line-mode 1)
 
+(add-to-list 'default-frame-alist '(undecorated . t))
+
 (use-package package
   :config
   (add-to-list 'package-archives
