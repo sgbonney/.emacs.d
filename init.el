@@ -124,15 +124,12 @@
   :config
   (ignore-errors
     (setq auto-dark-themes '((modus-operandi-tinted) (modus-vivendi-tinted)))
-
     (add-hook 'auto-dark-dark-mode-hook
               (lambda ()
                 (load-theme 'modus-vivendi-tinted :no-confirm)))
-
     (add-hook 'auto-dark-light-mode-hook
               (lambda ()
                 (load-theme 'modus-operandi-tinted :no-confirm)))
-
     (auto-dark-mode 1)))
 
 (use-package god-mode
