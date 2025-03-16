@@ -44,6 +44,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("a75aff58f0d5bbf230e5d1a02169ac2fbf45c930f816f3a21563304d5140d245" default))
  '(org-agenda-custom-commands
    '(("H" "Habits"
       ((agenda ""
@@ -55,6 +57,12 @@
  '(org-refile-allow-creating-parent-nodes 'confirm)
  '(org-refile-targets '((org-agenda-files :tag . ":maxlevel . 2")))
  '(org-refile-use-outline-path 'file)
+ '(package-selected-packages
+   '(auto-dark org-multi-clock nov ob-yaml org-roam jinx titlecase elfeed-tube eradio citar-denote citar biblio consult-notes denote consult orderless marginalia vertico el-patch yasnippet-snippets yasnippet magit org-web-tools hide-mode-line avy devil key-chord god-mode modus-themes vc-use-package))
+ '(package-vc-selected-packages
+   '((org-multi-clock :url "https://gitlab.com/OlMon/org-multi-clock" :branch "master")
+     (ob-yaml :url "https://github.com/llhotka/ob-yaml" :branch "main")
+     (vc-use-package :vc-backend Git :url "https://github.com/slotThe/vc-use-package")))
  '(safe-local-variable-values '((org-duration-format . h:mm) (org-log-done . time))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -108,9 +116,22 @@
   (modus-themes-bold-constructs t)
   (modus-themes-mixed-fonts t)
   (modus-themes-to-toggle
-   '(modus-operandi-tinted modus-vivendi-tinted))
-  :init
-  (load-theme 'modus-vivendi-tinted :no-confirm))
+   '(modus-operandi-tinted modus-vivendi-tinted)))
+
+(use-package auto-dark
+  :config
+  (ignore-errors
+    (setq auto-dark-themes '((modus-operandi-tinted) (modus-vivendi-tinted)))
+
+    (add-hook 'auto-dark-dark-mode-hook
+              (lambda ()
+                (load-theme 'modus-vivendi-tinted :no-confirm)))
+
+    (add-hook 'auto-dark-light-mode-hook
+              (lambda ()
+                (load-theme 'modus-operandi-tinted :no-confirm)))
+
+    (auto-dark-mode 1)))
 
 (use-package god-mode
   :init
