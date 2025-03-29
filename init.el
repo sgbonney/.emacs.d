@@ -14,6 +14,8 @@
 
 (add-to-list 'default-frame-alist '(undecorated . t))
 
+(setq make-backup-files nil)
+
 (use-package package
   :config
   (add-to-list 'package-archives
