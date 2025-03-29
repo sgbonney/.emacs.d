@@ -46,8 +46,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("a75aff58f0d5bbf230e5d1a02169ac2fbf45c930f816f3a21563304d5140d245" default))
  '(org-agenda-custom-commands
    '(("H" "Habits"
       ((agenda ""
@@ -72,6 +70,32 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq custom-safe-themes t)
+
+(use-package modus-themes
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-bold-constructs t)
+  (modus-themes-mixed-fonts t)
+  (modus-themes-to-toggle
+   '(modus-operandi-tinted modus-vivendi-tinted)))
+
+(cond
+ ((eq system-type 'android)
+  (load-theme 'modus-vivendi-tinted :no-confirm))
+ (t
+  (use-package auto-dark
+    :config
+    (ignore-errors
+      (setq auto-dark-themes '((modus-operandi-tinted) (modus-vivendi-tinted)))
+      (add-hook 'auto-dark-dark-mode-hook
+                (lambda ()
+                  (load-theme 'modus-vivendi-tinted :no-confirm)))
+      (add-hook 'auto-dark-light-mode-hook
+                (lambda ()
+                  (load-theme 'modus-operandi-tinted :no-confirm)))
+      (auto-dark-mode 1)))))
 
 (setq org-agenda-files nil)
 
@@ -111,30 +135,6 @@
 	 (file+headline "~/Documents/books-test.org" "Books to read")
 	 (file "~/Documents/tpl-book.org")
 	 :empty-lines-after 2)))
-
-(use-package modus-themes
-  :custom
-  (modus-themes-italic-constructs t)
-  (modus-themes-bold-constructs t)
-  (modus-themes-mixed-fonts t)
-  (modus-themes-to-toggle
-   '(modus-operandi-tinted modus-vivendi-tinted)))
-
-(cond
- ((eq system-type 'android)
-  (load-theme 'modus-vivendi-tinted :no-confirm))
- (t
-  (use-package auto-dark
-    :config
-    (ignore-errors
-      (setq auto-dark-themes '((modus-operandi-tinted) (modus-vivendi-tinted)))
-      (add-hook 'auto-dark-dark-mode-hook
-                (lambda ()
-                  (load-theme 'modus-vivendi-tinted :no-confirm)))
-      (add-hook 'auto-dark-light-mode-hook
-                (lambda ()
-                  (load-theme 'modus-operandi-tinted :no-confirm)))
-      (auto-dark-mode 1)))))
 
 (use-package god-mode
   :init
