@@ -97,18 +97,7 @@
                   (load-theme 'modus-operandi-tinted :no-confirm)))
       (auto-dark-mode 1)))))
 
-(setq org-agenda-files nil)
-
-(defun refresh-org-agenda-files ()
-  "Refresh the list of Org agenda files."
-  (interactive)
-  (setq org-agenda-files
-        (directory-files-recursively
-         "~/Documents"
-         ".*_agenda.*\\.org$"))
-  (message "Org agenda files refreshed."))
-
-(refresh-org-agenda-files)
+(setq org-agenda-files "~/Applications/Emacs/agenda-files")
 
 (setq org-todo-keywords
       '((sequence "ACTIVITY(a)" "NEXT(n)" "PROJECT(p)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
