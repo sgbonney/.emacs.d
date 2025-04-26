@@ -1,5 +1,8 @@
 (setq warning-minimum-level :emergency)
 
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file 'noerror)
+
 (setq inhibit-startup-screen t
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
@@ -38,36 +41,6 @@
 (global-set-key "\C-crp" 'eradio-play)
 (global-set-key "\C-crs" 'eradio-stop)
 (global-set-key "\C-crt" 'eradio-toggle)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-custom-commands
-   '(("H" "Habits"
-      ((agenda ""
-	       ((org-agenda-span 'day)))
-       (todo "H" nil))
-      nil)))
- '(org-babel-load-languages '((emacs-lisp . t) (plantuml . t) (python . t) (shell . t)))
- '(org-log-into-drawer t)
- '(org-refile-allow-creating-parent-nodes 'confirm)
- '(org-refile-targets '((org-agenda-files :tag . ":maxlevel . 2")))
- '(org-refile-use-outline-path 'file)
- '(package-selected-packages
-   '(auto-dark org-multi-clock nov ob-yaml org-roam jinx titlecase elfeed-tube eradio citar-denote citar biblio consult-notes denote consult orderless marginalia vertico el-patch yasnippet-snippets yasnippet magit org-web-tools hide-mode-line avy devil key-chord god-mode modus-themes vc-use-package))
- '(package-vc-selected-packages
-   '((org-multi-clock :url "https://gitlab.com/OlMon/org-multi-clock" :branch "master")
-     (ob-yaml :url "https://github.com/llhotka/ob-yaml" :branch "main")
-     (vc-use-package :vc-backend Git :url "https://github.com/slotThe/vc-use-package")))
- '(safe-local-variable-values '((org-duration-format . h:mm) (org-log-done . time))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (setq custom-safe-themes t)
 
@@ -115,6 +88,8 @@
 				 (todo . " %i %-12:c")
 				 (tags . " %i %-12:c")
 				 (search . " %i %-12:c")))
+
+(setq org-log-into-drawer t)
 
 (setq org-capture-templates
       '(("i" "Inbox" entry
@@ -612,3 +587,8 @@ allowing the user to interactively choose entries or specify on-the-fly new ones
 (global-set-key (kbd "C-c f f") #'custom/org-roam-node-find)
 
 (provide 'org-roam-filter-entries)
+
+(org-babel-load-languages '((emacs-lisp . t)
+                             (plantuml . t)
+                             (python . t)
+                             (shell . t)))
