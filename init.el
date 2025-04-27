@@ -394,11 +394,6 @@
   :config
   (display-line-numbers-mode 0))
 
-;; active Org-babel languages
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(;; other Babel languages
-   (plantuml . t)))
 (setq org-plantuml-jar-path
       (expand-file-name "~/plantuml.jar"))
 
@@ -588,7 +583,9 @@ allowing the user to interactively choose entries or specify on-the-fly new ones
 
 (provide 'org-roam-filter-entries)
 
-(org-babel-load-languages '((emacs-lisp . t)
-                             (plantuml . t)
-                             (python . t)
-                             (shell . t)))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (plantuml . t)
+   (python . t)
+   (shell . t)))
