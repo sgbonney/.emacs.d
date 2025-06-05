@@ -339,24 +339,6 @@
   :custom
   (org-roam-directory "~/Documents")
   (org-roam-completion-everywhere t)
-  (org-roam-capture-templates
-   '(("d" "default" plain
-      "%?"
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)
-     ("j" "journal" plain
-      "%?"
-      :if-new (file+head "%<%Y%m%d%H%M%S>-%<%Y_%m_%d>_journal.org" "#+title: %<%Y-%m-%d> journal\n#+date: %U\n")
-      :unnarrowed t)
-     ("p" "project" plain "* Goals\n\n%?\n\n* Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: Project")
-      :unnarrowed t)
-     ("g" "diagram" plain (file "~/Documents/system/templates/org_roam/plantuml_digraph_template.org")
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}_diagram.org" "#+title: ${title} diagram\n")
-      :unnarrowed t)
-     ("t" "quote" plain (file "~/Documents/system/templates/org_roam/quote_template.org")
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
-      :unnarrowed t)))
   :bind (("C-c n l" . org-roam-buffer-toggle)
 ;;         ("C-c n f" . org-roam-node-find)
          ("C-c n i" . org-roam-node-insert)
