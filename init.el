@@ -231,9 +231,14 @@
 (use-package denote
   :config
   (setq denote-directory "~/Documents")
-  (add-hook 'dired-mode-hook 'denote-dired-mode)
-  (require 'denote-journal-extras)
-  (setq denote-journal-extras-title-format 'day-date-month-year))
+  (add-hook 'dired-mode-hook 'denote-dired-mode))
+
+(use-package denote-journal
+  :config
+  (setq denote-journal-directory
+        (expand-file-name "journal" denote-directory))
+  (setq denote-journal-keyword "journal")
+  (setq denote-journal-title-format 'day-date-month-year))
 
 ;; type '<m' followed by TAB
 (require 'org-tempo)
