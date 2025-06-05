@@ -379,10 +379,6 @@
       (concat "${title:*} "
               (propertize "${tags:10}" 'face 'org-tag)))
 
-(use-package ob-yaml
-  :vc (ob-yaml :url "https://github.com/llhotka/ob-yaml"
-		       :branch "main"))
-
 (use-package nov
   :init
   (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
