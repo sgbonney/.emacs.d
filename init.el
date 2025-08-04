@@ -333,6 +333,13 @@
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
 
+(cond
+ ((eq system-type 'android)
+  (defun launch-termux ()
+  (interactive)
+  (let ((command "am start --user 0 -n com.termux/com.termux.app.TermuxActivity"))
+    (shell-command command)))))
+
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
