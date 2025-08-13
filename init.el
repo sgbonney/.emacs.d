@@ -565,3 +565,6 @@ allowing the user to interactively choose entries or specify on-the-fly new ones
    (plantuml . t)
    (python . t)
    (shell . t)))
+
+(unless (server-running-p)
+  (server-start))
