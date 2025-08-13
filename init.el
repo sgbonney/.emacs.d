@@ -584,5 +584,6 @@ allowing the user to interactively choose entries or specify on-the-fly new ones
       (delete-file file-name))
     (find-file file-name)
     (insert "This file is produced to keep Emacs running while it is in the background. Used in conjunction with Android 'Emacs Background Service' notification, see (emacs)Android Environment.")
+    (read-only-mode)
     (bury-buffer)))
   (android-emacs-background-service-file)))
