@@ -574,3 +574,13 @@ allowing the user to interactively choose entries or specify on-the-fly new ones
 
 (unless (server-running-p)
   (server-start))
+
+(cond
+ ((eq system-type 'android)
+  (defun android-emacs-background-service-file ()
+  (let ((file-path (expand-file-name "emacs-background-service" "~")))
+    (when (file-exists-p file-path)
+      (delete-file file-path))
+    (with-temp-file file-path
+      (insert "This file is produced to keep Emacs running while it is in the background. Used in conjunction with Android 'Emacs Background Service' notification, see (emacs)Android Environment."))))
+  (android-emacs-background-service-file)))
