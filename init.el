@@ -31,6 +31,12 @@
   (package-native-compile t)
   (warning-minimum-level :emergency))
 
+(use-package dired
+  :ensure nil
+  :defer t
+  :hook
+    (dired-mode . dired-hide-details-mode))
+
 (with-eval-after-load 'org
   (add-to-list 'org-modules 'org-habit t))
 
