@@ -42,8 +42,6 @@
 
 (global-set-key (kbd "<volume-up>") 'nov-scroll-down)
 (global-set-key (kbd "<volume-down>") 'nov-scroll-up)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
 
 (setq custom-safe-themes t)
 
@@ -165,7 +163,9 @@
   (setq devil-all-keys-repeatable t))
 
 (use-package org
-  :bind (:map org-mode-map
+  :bind (("C-c a" . org-agenda)
+	 ("C-c c" . org-capture)
+	 :map org-mode-map
               ("C-'" . nil)
 	      ("C-," . nil)))
 
