@@ -310,6 +310,23 @@
    ("C-c w b d" . citar-denote-dwim)
    ("C-c w b e" . citar-denote-open-reference-entry)))
 
+(use-package emms
+  :init
+  (emms-standard)  
+  :config
+  (emms-playing-time-disable-display)
+  (emms-add-m3u-playlist "~/Applications/Transistor/collection.m3u")
+  :custom
+  (emms-player-list '(emms-player-mpv))
+  (emms-player-mpv-update-metadata t)
+  (emms-repeat-playlist t)
+  :bind
+  (("C-c r e" . emms)
+   ("C-c r s" . emms-pause)
+   ("C-c r n" . emms-next)
+   ("C-c r p" . emms-previous)
+   ("C-c r k" . emms-stop)))
+
 (use-package titlecase
   :defer t)
 
