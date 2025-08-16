@@ -315,7 +315,7 @@
   (emms-standard)  
   :config
   (emms-playing-time-disable-display)
-  (emms-add-m3u-playlist "~/Applications/Transistor/collection.m3u")
+  (emms-add-m3u-playlist "~/Applications/Transistor/transistor-backup/collection/collection.m3u")
   :custom
   (emms-player-list '(emms-player-mpv))
   (emms-player-mpv-update-metadata t)
