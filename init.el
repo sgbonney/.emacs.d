@@ -320,12 +320,8 @@
   (emms-player-list '(emms-player-mpv))
   (emms-player-mpv-update-metadata t)
   (emms-repeat-playlist t)
-  :bind
-  (("C-c r e" . emms)
-   ("C-c r s" . emms-pause)
-   ("C-c r n" . emms-next)
-   ("C-c r p" . emms-previous)
-   ("C-c r k" . emms-stop)))
+  :bind-keymap
+  (("C-c r" . emms-playlist-mode-map)))
 
 (use-package titlecase
   :defer t)
