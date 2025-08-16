@@ -44,9 +44,6 @@
 (global-set-key (kbd "<volume-down>") 'nov-scroll-up)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-crp" 'eradio-play)
-(global-set-key "\C-crs" 'eradio-stop)
-(global-set-key "\C-crt" 'eradio-toggle)
 
 (setq custom-safe-themes t)
 
@@ -312,24 +309,6 @@
    ("C-c w b K" . citar-denote-remove-citekey)
    ("C-c w b d" . citar-denote-dwim)
    ("C-c w b e" . citar-denote-open-reference-entry)))
-
-(use-package eradio
-  :init
-  (setq eradio-player '("mpv" "--no-video" "--no-terminal"))
-  :config
-  (setq eradio-channels
-        (with-temp-buffer
-          (insert-file-contents "~/Documents/system/radio_stations.org")
-          (goto-char (point-min))
-          (let (channels)
-            (while (re-search-forward "^\\*\\* \\(.*\\)$" nil t)
-              (let ((station-name (match-string 1))
-                    (url (save-excursion
-                           (re-search-forward ":URL: \\(.*\\)$")
-                           (match-string 1))))
-                (push (cons station-name url) channels)))
-            (nreverse channels)))
-  ))
 
 (use-package titlecase
   :defer t)
