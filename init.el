@@ -7,6 +7,8 @@
       initial-major-mode 'fundamental-mode
       initial-scratch-message nil)
 
+(setq server-client-instructions nil)
+
 (setq overriding-text-conversion-style nil
       touch-screen-display-keyboard t)
 
