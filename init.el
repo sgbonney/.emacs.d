@@ -290,9 +290,9 @@
   (setq citar-library-paths
         (append
          (list "~/Audiobooks")
-         (file-expand-wildcards "~/Audiobooks/*")
+         (file-expand-wildcards "~/Audiobooks/.*")
          (list "~/Ebooks")
-         (file-expand-wildcards "~/Ebooks/*")))
+         (file-expand-wildcards "~/Ebooks/.*")))
   (setq citar-templates
         '((main . "${title:48}     ${author editor:30%sn}     ${date year issued:4}")
           (suffix . "          ${=key= id:15}    ${=type=:12}    ${tags keywords:*}")
