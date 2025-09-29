@@ -337,13 +337,16 @@
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages)))
 
-(cond
- ((eq system-type 'android)
-  (defun launch-keepassxc ()
+(defun keepassxc ()
   (interactive)
-  (let ((command "am startservice --user 0 -n com.termux/com.termux.app.RunCommandService \
+  (cond
+   ((string-equal system-type "gnu/linux")
+    (shell-command "keepassxc.sh"))
+
+   ((string-equal system-type "android")
+    (let ((command "am startservice --user 0 -n com.termux/com.termux.app.RunCommandService \
 -a com.termux.RUN_COMMAND \
---es com.termux.RUN_COMMAND_PATH '/data/data/com.termux/files/home/.local/bin/launch-keepassxc.sh' \
+--es com.termux.RUN_COMMAND_PATH '/data/data/com.termux/files/home/.local/bin/keepassxc.sh' \
 --esa com.termux.RUN_COMMAND_ARGUMENTS '' \
 --es com.termux.RUN_COMMAND_WORKDIR '/data/data/com.termux/files/home' \
 --ez com.termux.RUN_COMMAND_BACKGROUND 'true' \
